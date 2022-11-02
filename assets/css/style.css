@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: aquamarine;
+  font-family: "Roboto Condensed", sans-serif;
+  height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  background-color: orange;
+  height: 10%;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 50px;
+  margin-right: 20px;
+}
+
+button {
+  border: 0;
+  padding: 3px 40px;
+  border-radius: 5px;
+}
+
+span {
+  margin-right: 5px;
+}
+
+select {
+  border: 0;
+  padding: 3px 13px;
+  border-radius: 5px;
+}
+
+main {
+  height: 80%;
+  padding: 50px;
+}
+
+#griglia {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 40%;
+  margin: auto;
+}
+
+.square {
+  border: 1px solid black;
+  width: calc(100% / 10);
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.squareNormal {
+  border: 1px solid black;
+  width: calc(100% / 9);
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.squareHard {
+  border: 1px solid black;
+  width: calc(100% / 7);
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.active {
+  background-color: orange;
+}
+
+footer {
+  padding: 30px;
+  background-color: orange;
+  height: 10%;
+}
