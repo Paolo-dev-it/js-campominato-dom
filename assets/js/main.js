@@ -57,9 +57,7 @@ function startPlay() {
 
         let elementCurrent = creatingSquare(); //Richiamo la funzione e gli do un nome
         // console.log(elementCurrent);
-
-         elementCurrent.innerText = i + 1;
-
+        
          let innerNumber = i + 1;
 
          elementCurrent.innerText = innerNumber;
@@ -68,15 +66,23 @@ function startPlay() {
          console.log(innerNumber);
 
          let classToggle = 'active';
- 
-    if (arrayBomb.includes(innerNumber)) {
-      classToggle = 'error';
-    }
-
+        
+        if (arrayBomb.includes(innerNumber)) {
+            classToggle = 'error';
+        }
+        var counter = 0;
          elementCurrent.addEventListener('click', function(){ //Evento al click che mi permette di aggiungere una classe e grazie al "this" seleziono solo un elemento
             console.log(this);
             this.classList.toggle(classToggle);
             
+            if (classToggle == "active"){
+                
+                counter += 1;
+                document.getElementById('counter').innerHTML = `Il tuo punteggio è : ${counter}`
+                console.log(counter)
+            } else {
+                alert('HAI PERSO');
+            }
         })        
 
 
