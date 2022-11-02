@@ -80,9 +80,14 @@ function startPlay() {
                 counter += 1;
                 document.getElementById('counter').innerHTML = `Il tuo punteggio è : ${counter}`
                 console.log(counter)
-            } else {
+
+            } else if (classToggle == "error"){
+
                 alert('HAI PERSO');
+                document.getElementById('counter').innerHTML = `Il tuo punteggio finale è : ${counter}`
+                
             }
+            
         })        
 
 
