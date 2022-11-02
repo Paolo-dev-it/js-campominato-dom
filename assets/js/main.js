@@ -11,6 +11,8 @@ function startPlay() {
     const griglia = document.getElementById("griglia"); //Collego il mio div dall'html
     console.log(griglia);
 
+    const content = document.getElementById("content");
+
     griglia.innerHTML ="";
 
     function creatingSquare(){ //Creo la funzione per creare un div all'interno del mio div contenitore
@@ -38,12 +40,12 @@ function startPlay() {
         
         for (let x = 1; x <= 16; x++) { //Aggiungo grazie al ciclo 16 numeri random
 
-            let numberRandom = Math.floor(Math.random(1) * chooseDifficult);
-            if (arrayBomb.includes(numberRandom) == true) {
+            let numberRandom = Math.floor(Math.random(1) * chooseDifficult); //16 numeri random da 1 a numero celle
+            if (arrayBomb.includes(numberRandom) == true) { //Se l'array ha un numero randomico, ne toglie 1 finche è diverso
 
                 x = x - 1;
 
-            } else if (numberRandom > chooseDifficult == false) {
+            } else if (numberRandom > chooseDifficult == false) { // Se invece il numero è diverso lo mette nell'array
 
                  arrayBomb.push(numberRandom);
 
@@ -65,36 +67,34 @@ function startPlay() {
          console.log( elementCurrent )
          console.log(innerNumber);
 
-         let classToggle = 'active';
+         let classToggle = 'active'; //Variabile all'active della cella
         
-        if (arrayBomb.includes(innerNumber)) {
-            classToggle = 'error';
+        if (arrayBomb.includes(innerNumber)) { //Se un numero all'interno dell'array include il numero della cella 
+            classToggle = 'error'; //Trasforma la classe in error
         }
         var counter = 0;
          elementCurrent.addEventListener('click', function(){ //Evento al click che mi permette di aggiungere una classe e grazie al "this" seleziono solo un elemento
             console.log(this);
             this.classList.toggle(classToggle);
             
-            if (classToggle == "active"){
+            if (classToggle == "active"){ //Se la classe è in active il conteggio aumenta
                 
                 counter += 1;
                 document.getElementById('counter').innerHTML = `Il tuo punteggio è : ${counter}`
                 console.log(counter)
 
-            } else if (classToggle == "error"){
-
+            } else { //Se la classe è in error il conteggio si arresta e dice il punteggio finale 
                 alert('HAI PERSO');
                 document.getElementById('counter').innerHTML = `Il tuo punteggio finale è : ${counter}`
                 
             }
-            
+             
         })        
-
-
         griglia.append ( elementCurrent ); //Aggiungo al div griglia la funzione con l'evento al click
-        
     }
+ 
 }
+
 
 
 
