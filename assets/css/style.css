@@ -91,6 +91,10 @@ main {
   background-color: orange;
 }
 
+.error {
+  background-color: red;
+}
+
 footer {
   padding: 30px;
   background-color: orange;

@@ -32,13 +32,25 @@ function startPlay() {
     }
         console.log( creatingSquare() );
 
-        let arrayBomb = []; //Creo array vuoto
-        console.log(arrayBomb);
+        
 
-        for (let n = 1; n <= 16; n++) { //Aggiungo grazie al ciclo 16 numeri random
-            let numberRandom = Math.floor(Math.random(1) * chooseDifficult)
-            arrayBomb.push(numberRandom);
+        let arrayBomb = []; //Creo array vuoto
+        
+        for (let x = 1; x <= 16; x++) { //Aggiungo grazie al ciclo 16 numeri random
+
+            let numberRandom = Math.floor(Math.random(1) * chooseDifficult);
+            if (arrayBomb.includes(numberRandom) == true) {
+
+                x = x - 1;
+
+            } else if (numberRandom > chooseDifficult == false) {
+
+                 arrayBomb.push(numberRandom);
+
+                } 
         }
+        console.log(arrayBomb);
+        
     
 
     for ( let i = 0; i < chooseDifficult; i++ ) { //Inizializzo ciclo
@@ -46,19 +58,33 @@ function startPlay() {
         let elementCurrent = creatingSquare(); //Richiamo la funzione e gli do un nome
         // console.log(elementCurrent);
 
-        elementCurrent.addEventListener('click', function(){ //Evento al click che mi permette di aggiungere una classe e grazie al "this" seleziono solo un elemento
-            console.log(this);
-            this.classList.toggle('active');
-            
-        })
-
          elementCurrent.innerText = i + 1;
 
+         let innerNumber = i + 1;
+
+         elementCurrent.innerText = innerNumber;
+
          console.log( elementCurrent )
+         console.log(innerNumber);
+
+         let classToggle = 'active';
+ 
+    if (arrayBomb.includes(innerNumber)) {
+      classToggle = 'error';
+    }
+
+         elementCurrent.addEventListener('click', function(){ //Evento al click che mi permette di aggiungere una classe e grazie al "this" seleziono solo un elemento
+            console.log(this);
+            this.classList.toggle(classToggle);
+            
+        })        
 
 
         griglia.append ( elementCurrent ); //Aggiungo al div griglia la funzione con l'evento al click
         
     }
 }
+
+
+
 
