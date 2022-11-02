@@ -48,7 +48,7 @@ select {
 
 main {
   height: 80%;
-  padding: 50px;
+  padding: 70px;
 }
 
 #griglia {
@@ -97,8 +97,8 @@ main {
 
 #counter {
   text-align: center;
-  margin-top: 50px;
-  font-size: 3rem;
+  margin-top: 0px;
+  font-size: 2.5rem;
 }
 
 footer {
