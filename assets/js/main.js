@@ -11,7 +11,7 @@ function startPlay() {
     const griglia = document.getElementById("griglia"); //Collego il mio div dall'html
     console.log(griglia);
 
-    const content = document.getElementById("content");
+    // const content = document.getElementById("content");
 
     griglia.innerHTML ="";
 
@@ -76,18 +76,32 @@ function startPlay() {
          elementCurrent.addEventListener('click', function(){ //Evento al click che mi permette di aggiungere una classe e grazie al "this" seleziono solo un elemento
             console.log(this);
             this.classList.toggle(classToggle);
+
+            //  let check = false;
             
             if (classToggle == "active"){ //Se la classe è in active il conteggio aumenta
                 
                 counter += 1;
+                this.style.pointerEvents = 'none';
                 document.getElementById('counter').innerHTML = `Il tuo punteggio è : ${counter}`
                 console.log(counter)
-
+                //  check = false
             } else { //Se la classe è in error il conteggio si arresta e dice il punteggio finale 
+                
                 alert('HAI PERSO');
                 document.getElementById('counter').innerHTML = `Il tuo punteggio finale è : ${counter}`
-                
+                //  check = true
             }
+
+            // for(let v = 0; v <= chooseDifficult; v++){
+            //     if (arrayBomb.includes(innerNumber)){
+            //        .classList.add("error")
+            //     }
+            // }
+
+            //  if (check == true) {
+            //      griglia.innerHTML ="";
+            //  }
              
         })        
         griglia.append ( elementCurrent ); //Aggiungo al div griglia la funzione con l'evento al click
